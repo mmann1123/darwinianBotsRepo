@@ -274,8 +274,8 @@ class Robot(BaseRobot):
         self.setRobotPosition(positionCandidate)
         
         #feed this robot if there was food right there...
-        if self.room.dirtyDict[positionCandidate] == 'dirty':
-            self.food += 1
+       # if self.room.dirtyDict[positionCandidate] == 'dirty':
+       #     self.food += 1
         self.room.cleanTileAtPosition(positionCandidate)
 
         
@@ -325,7 +325,7 @@ def runSimulation(num_robots, speed, width, height, min_coverage, num_trials,
             for bot in roboList:          #hey all you robots...
                 #get hungrier...
                 bot.setRobotHunger(-1)
-                if bot.getRobotHunger < 1:
+             #   if bot.getRobotHunger < 1:
                     
 
                 bot.updatePositionAndClean() #... clean the floor, stupid minions!
@@ -500,7 +500,7 @@ def testing():
     min_coverage =0.8
     num_trials = 5
     robot_type = RandomWalkRobot
-    visualize = False
+    visualize = True
     results = runSimulation(num_robots, speed, width, height, min_coverage,  num_trials, robot_type, visualize)
     print 'here'
     print computeMeans(results)
